@@ -1,7 +1,47 @@
-# pyPI: Potential Intensity Calculations in Python
-<p align="center">
-<img src="./figures/readme_image.png" alt="" width="720" height="480">
-</p>
+### pyPI: Potential Intensity Calculations in Python
+Bermuda PI Predictor Model
+
+Program developed by Samantha and Jake Hallam
+Email: samantha.hallam@mu.ie 
+
+Program utilises methodology as set out in Samantha Hallam et al 2021 Environ. Res. Lett. 16 034052 doi: 10.1088/1748-9326/abe493 
+
+Program utilises pyPI from Daniel Gilford to calculate minimum pressure
+Gilford, D. M. 2020: pyPI: Potential Intensity Calculations in Python, v1.2, Zenodo, doi:10.5281/zenodo.3900548
+
+Vmax is calculated using the wind-pressure relationship for Bermuda 1955-2019 as outlined in Samantha Hallam 2021 (Thesis) The Impact of Atlantic Ocean Variability on North Atlantic storminess and the Northern Hemisphere Jet Stream
+
+—————————————————————————————————————————————————
+ 
+### INSTRUCTIONS
+
+Ensure you have Python 3.9+ installed on your machine.
+
+Run this command from the bermuda_pi_predictor_model directory to install all requirements.
+```bash
+pip3 install -r requirements.txt
+```
+
+To run the program, run this command from inside the bermuda_pi_predictor_model directory.
+```bash
+python3 bermuda_pi_predictor_model.py -s [yyyymmddHH] -t [t50 | sst] -p [sea level pressure] -o [/path/to/file/filename.csv]
+```
+
+
+## NOTES
+
+For more information on the command-line arguments enter [PATH_TO_FILE]/[FILENAME]  followed by -h. This will show list all arguments and their constraints.
+
+optional arguments:
+  -h, --help      show this help message and exit
+  -s DATE_DIGITS  Sounding date and time (format YYYYMMDDHH)
+  -t {t50,sst}    Temperature profile 't50' or 'sst'
+  -p SLP          Sea level Pressure (mb)
+  -o OUTPUT_PATH  Output path
+
+ If the specified CSV file does not exist at the output directory, then it will be created. If it does exist, then the newly calculated outputs will be appended onto the existing CSV file.
+
+### pyPI
 
 pyPI is a set of scripts and notebooks that compute and validate tropical cyclone (TC) potential intensity (PI) calculations in Python.
 It is a fully documented and improved port of the [Bister and Emanuel 2002](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001JD000776) algorithm (hereafter BE02) which was originally written in FORTRAN---and then MATLAB---by Prof. Kerry Emanuel (MIT).
