@@ -389,9 +389,9 @@ def export_outputs(T50, t_profile, SLP, VMAX, PMIN, TO, rq_datetime, sounding_ti
         temp_type = 0
 
     csv_headers = ["Date Run", "Date Input", "Potential Maximum Wind Velocity (m/s)", "Minimum Pressure At Eye (mb)", "Outflow Temperature (K)", "Temperature Recording Source",
-                   "Temperature Recording Date", "Temperature Profile", "Atmospheric Sounding Station", "Atmospheric Sounding Date", "Sea Level Pressure (mb)", "", ""]
+                   "Temperature Recording Date", "Temperature Profile", "Ocean Temperature", "Atmospheric Sounding Station", "Atmospheric Sounding Date", "Sea Level Pressure (mb)", "", ""]
     csv_data = [datetime.now().strftime("%Y-%m-%d %H:%M"), rq_datetime.strftime("%Y-%m-%d %H:%M"), round(VMAX, csv_number_dp), round(PMIN, csv_number_dp),
-                round(TO, csv_number_dp), ocean_profile_source, ocean_profile_timestamp, temperature_type_list[temp_type], soundings_source_list[0], sounding_timestamp, SLP]
+                round(TO, csv_number_dp), ocean_profile_source, ocean_profile_timestamp, temperature_type_list[temp_type], round(T50, csv_number_dp), soundings_source_list[0], sounding_timestamp, SLP]
     path = args.output_path
     output_csv(path, csv_headers, csv_data)
     print("Output to CSV complete.")
