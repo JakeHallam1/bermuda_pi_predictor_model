@@ -73,15 +73,16 @@ def find_closest_data_batch(rq_datetime):
         mail_content_str = str(mail_content)
         # removes additional text from email
         chunks = mail_content_str.split(delimiter)
-        data_chunks = chunks[1]
-        # separates data string by line
-        data_list = data_chunks.split('\\r\\n')
-        data_list.remove('')
-        data_list.remove('\'')
-
-        data_list = list(filter(None, data_list))
-        data_array = []
         try:
+            data_chunks = chunks[1]
+            # separates data string by line
+            data_list = data_chunks.split('\\r\\n')
+            data_list.remove('')
+            data_list.remove('\'')
+
+            data_list = list(filter(None, data_list))
+            data_array = []
+
             # separates and cleans first line of data row
             row_list = data_list[0].split(',')
             for j in range(0, len(row_list)):
